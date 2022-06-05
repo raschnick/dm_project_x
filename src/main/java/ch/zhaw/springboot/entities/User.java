@@ -29,7 +29,6 @@ public class User {
 
     }
 
-    // TODO: is this required? what does it again?
     @JsonIgnore
     public List<Permission> getPermissions() {
         return permissions;
