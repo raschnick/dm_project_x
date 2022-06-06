@@ -1,9 +1,11 @@
 package ch.zhaw.springboot.entities;
 
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("file")
 public class File extends Node {
 
     private String fileType;
