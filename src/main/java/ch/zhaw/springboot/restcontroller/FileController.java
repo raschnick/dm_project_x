@@ -28,9 +28,6 @@ public class FileController {
     public ResponseEntity<List<File>> getFiles() {
         List<File> result = this.repository.findAll();
 
-        File file = new File("exampleFile", "pdf");
-        System.out.println("created file " + file);
-
         if (result.isEmpty()) {
             return new ResponseEntity<List<File>>(HttpStatus.NOT_FOUND);
         } else {
