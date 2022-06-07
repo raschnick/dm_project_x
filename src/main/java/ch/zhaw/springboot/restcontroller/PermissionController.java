@@ -41,4 +41,15 @@ public class PermissionController {
         }
     }
 
+    @RequestMapping(value = "permissions/edges", method = RequestMethod.GET)
+    public ResponseEntity<List<Permission>> getEdges() {
+        List<Permission> result = this.repository.getEdges();
+
+        if (result.isEmpty()) {
+            return new ResponseEntity<List<Permission>>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<List<Permission>>(result, HttpStatus.OK);
+        }
+    }
+
 }

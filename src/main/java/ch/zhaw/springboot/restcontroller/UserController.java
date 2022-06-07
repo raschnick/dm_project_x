@@ -41,15 +41,15 @@ public class UserController {
         }
     }
 
-    /*@RequestMapping(value = "/users/{name}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUserByName(@PathVariable("name") String name) {
-        User result = this.repository.findUserByName(name);
+    @RequestMapping(value = "/users/graph_nodes", method = RequestMethod.GET)
+    public ResponseEntity<List<User>> getUsersAsGraphNodes() {
+        List<User> result = this.repository.findUsersAsGraphNodes();
 
-        if (result != null) {
-            return new ResponseEntity<User>(result, HttpStatus.OK);
+        if (result.isEmpty()) {
+            return new ResponseEntity<List<User>>(HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<User>>(result, HttpStatus.OK);
         }
-    }*/
+    }
 
 }
