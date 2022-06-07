@@ -7,51 +7,59 @@ import java.util.List;
 @Entity
 public class Permission {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-	private Date date;
+    private Date date;
 
-	private String type;
+    private String type;
 
-	@ManyToOne
-	private User user;
+    @ManyToOne
+    private User user;
 
-	@ManyToOne
-	private Node node;
+    @ManyToOne
+    private Node node;
 
-	public Permission(Date date) {
-		super();
-		this.date = date;
-	}
+    public Permission(Date date) {
+        super();
+        this.date = date;
+    }
 
-	public Permission() {
+    public Permission() {
 
-	}
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public Node getNode() {
-		return node;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Node getNode() {
+        return node;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
 }

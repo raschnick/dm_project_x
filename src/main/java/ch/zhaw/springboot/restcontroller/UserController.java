@@ -5,10 +5,7 @@ import ch.zhaw.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +16,7 @@ public class UserController {
     @Autowired
     private UserRepository repository;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
         List<User> result = this.repository.findAll();
 
@@ -30,7 +27,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+    @GetMapping("/users/{id}")
     public ResponseEntity<List<User>> getUserById(@PathVariable("id") Long id) {
         List<User> result = this.repository.findAllById(Collections.singleton(id));
 
@@ -41,7 +38,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/users/graph_nodes", method = RequestMethod.GET)
+    @GetMapping("/users/graph_nodes")
     public ResponseEntity<List<User>> getUsersAsGraphNodes() {
         List<User> result = this.repository.findUsersAsGraphNodes();
 

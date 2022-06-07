@@ -1,15 +1,12 @@
 package ch.zhaw.springboot.restcontroller;
 
-import ch.zhaw.springboot.entities.File;
 import ch.zhaw.springboot.entities.Folder;
-import ch.zhaw.springboot.repositories.FileRepository;
 import ch.zhaw.springboot.repositories.FolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
@@ -21,7 +18,7 @@ public class FolderController {
     @Autowired
     private FolderRepository repository;
 
-    @RequestMapping(value = "/folders", method = RequestMethod.GET)
+    @GetMapping("/folders")
     public ResponseEntity<List<Folder>> getFiles() {
         List<Folder> result = this.repository.findAll();
 
@@ -32,7 +29,7 @@ public class FolderController {
         }
     }
 
-    @RequestMapping(value = "/folders/{id}", method = RequestMethod.GET)
+    @GetMapping("/folders/{id}")
     public ResponseEntity<List<Folder>> getFolderById(@PathVariable("id") Long id) {
         List<Folder> result = this.repository.findAllById(Collections.singleton(id));
 

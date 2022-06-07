@@ -5,9 +5,8 @@ import ch.zhaw.springboot.repositories.PermissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
@@ -19,7 +18,7 @@ public class PermissionController {
     @Autowired
     private PermissionRepository repository;
 
-    @RequestMapping(value = "/permissions", method = RequestMethod.GET)
+    @GetMapping("/permissions")
     public ResponseEntity<List<Permission>> getPermissions() {
         List<Permission> result = this.repository.findAll();
 
@@ -30,7 +29,7 @@ public class PermissionController {
         }
     }
 
-    @RequestMapping(value = "/permissions/{id}", method = RequestMethod.GET)
+    @GetMapping("/permissions/{id}")
     public ResponseEntity<List<Permission>> getPermissionById(@PathVariable("id") Long id) {
         List<Permission> result = this.repository.findAllById(Collections.singleton(id));
 
@@ -41,7 +40,7 @@ public class PermissionController {
         }
     }
 
-    @RequestMapping(value = "permissions/edges", method = RequestMethod.GET)
+    @GetMapping("permissions/edges")
     public ResponseEntity<List<Permission>> getEdges() {
         List<Permission> result = this.repository.getEdges();
 

@@ -29,9 +29,12 @@ public class User {
 
     }
 
-    @JsonIgnore
-    public List<Permission> getPermissions() {
-        return permissions;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -49,4 +52,10 @@ public class User {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @JsonIgnore
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
 }

@@ -31,6 +31,14 @@ public class Node {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -39,7 +47,6 @@ public class Node {
         this.name = name;
     }
 
-    // TODO: is this required? what does it again?
     @JsonIgnore
     public List<Permission> getPermissions() {
         return permissions;
