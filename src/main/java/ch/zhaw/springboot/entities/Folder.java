@@ -36,7 +36,6 @@ public class Folder extends Node {
         this.size = size;
     }
 
-    // TODO: is this required? what does it again?
     @JsonIgnore
     public List<Node> getNodes() {
         return nodes;
